@@ -1,0 +1,41 @@
+<style>
+  * {
+    font-family: arial;
+  }
+</style>
+<div>
+  <div>
+    <p>
+      This page should give you a count of the number of days from today to Christmas Day, New Years Day and Valentines Day.  
+    </p>
+  </div>
+
+  <div>
+    <ul id="days-until"></ul>
+  </div>
+
+  <div>
+    <button id="trigger">Show Days Until</button>
+  </div>
+</div>
+<script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous">
+</script>
+<script>
+  const today = new Date();
+  const christmas = new Date(2021,11,25)
+  const newYear = new Date(2022,0,01)
+  const valentines = new Date(2022,01,14)
+  const calculateToDate = day => {
+    return parseInt((day-today)/(24*3600*1000));
+  }
+
+  $("#trigger").click(function(){
+    $("#days-until").append("<li>" + calculateToDate(christmas).toString()+" days until Christmas</li>");
+    $("#days-until").append("<li>" + calculateToDate(newYear).toString()+" days until New Year</li>");
+    $("#days-until").append("<li>" + calculateToDate(valentines).toString()+" days until Valentines Day</li>");
+  })
+  
+</script>
